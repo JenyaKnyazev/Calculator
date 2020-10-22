@@ -26,7 +26,7 @@ namespace ConsoleApplication2
             for (int i = 0; i < s.Length;i++ ){
                 string temp = "";
                 bool minus = false;
-                if (i > 0 && s[i] == '-' && (s[i - 1] == '-' || s[i - 1] == '+' || s[i - 1] == '*' || s[i - 1] == '/'||s[i-1]=='^'||s[i-1]=='('))
+                if (i==0&&s[i]=='-'||i > 0 && s[i] == '-' && (s[i - 1] == '-' || s[i - 1] == '+' || s[i - 1] == '*' || s[i - 1] == '/'||s[i-1]=='^'||s[i-1]=='('))
                 {
                     minus = true;
                     i++;
@@ -123,7 +123,7 @@ namespace ConsoleApplication2
                     res += '*';
                 if (i < s.Length - 1 && s[i] == ')' && s[i +1] >= '0' && s[i +1] <= '9')
                     res += '*';
-                if (i > 0 && i < s.Length - 1&&s[i]=='-'&&s[i+1]=='('&&s[i-1]!=')')
+                if (i==0&&s[i]=='-'&&s[i+1]=='('||i > 0 && i < s.Length - 1&&s[i]=='-'&&s[i+1]=='('&&s[i-1]!=')')
                     res += "1*";
             }
             return res;
@@ -131,7 +131,7 @@ namespace ConsoleApplication2
         public static string change2(string s) {
             string res = "";
             for (int i = 0; i < s.Length; i++) {
-                if (s[i]==' '||i > 0 && s[i] == '-' && (s[i - 1] == '-' || s[i - 1] == '+' || s[i - 1] == '*' || s[i - 1] == '/' || s[i - 1] == '^'||s[i - 1] == '(') )
+                if (i==0&&s[i]=='-'||s[i]==' '||i > 0 && s[i] == '-' && (s[i - 1] == '-' || s[i - 1] == '+' || s[i - 1] == '*' || s[i - 1] == '/' || s[i - 1] == '^'||s[i - 1] == '(') )
                     continue;
                 res += s[i];
             }
