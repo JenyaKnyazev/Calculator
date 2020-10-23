@@ -16,6 +16,8 @@ namespace ConsoleApplication2
                 string input = Console.ReadLine();
                 if (input.Equals("exit"))
                     break;
+                if (input.Length == 0)
+                    continue;
                 calculate(input);
             }
             Console.WriteLine("Good Bye");
@@ -82,7 +84,7 @@ namespace ConsoleApplication2
                     int count = 0;
                     bool oper = false;
                     while (s[start] != ')' && s[start] != '('){
-                        if (s[start] == '+' || s[start] == '-' || s[start] == '*' || s[start] == '/')
+                        if (s[start] == '+' || s[start] == '-' || s[start] == '*' || s[start] == '/'||s[start]=='^')
                             oper = true;
                         start--;
                     }
@@ -103,7 +105,7 @@ namespace ConsoleApplication2
                     int j = start+1;
                     while (s[j] != ')' && s[j] != '(')
                     {
-                        if (s[j] == '+' || s[j] == '-' || s[j] == '*' || s[j] == '/')
+                        if (s[j] == '+' || s[j] == '-' || s[j] == '*' || s[j] == '/' || s[j] == '^')
                             oper = true;
                         j++;
                     }
