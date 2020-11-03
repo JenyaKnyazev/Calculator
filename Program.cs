@@ -198,6 +198,11 @@ namespace ConsoleApplication2
                                     break;
                                 case '/':
                                     index = countOperators(exp, i) - (c+z);
+                                    if (nums[index] == 0)
+                                    {
+                                        Console.WriteLine("Cannot divide by zero");
+                                        return;
+                                    }
                                     nums[index - 1] /= nums[index];
                                     nums.RemoveAt(index);
                                     opers.RemoveAt(index - 1);
