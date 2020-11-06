@@ -162,6 +162,10 @@ namespace ConsoleApplication2
             exp = change2(exp);
             exp = "(" + exp + ")";
             List<char> opers = getOperators(exp);
+            if(isValid(exp)==false||nums.Count!=opers.Count+1){
+                Console.WriteLine("Invalid input");
+                return;
+            }
             int index;
             if (nums.Count > 1) {
                 while (exp.Length > 0) {
@@ -238,6 +242,22 @@ namespace ConsoleApplication2
                 }
             }
             Console.WriteLine("Result = "+nums[0]);
+        }
+        public static bool isValid(string s) {
+            int count = 0;
+            int count2 = 0;
+            foreach(char i in s)
+                if (!(i>= '0' && i <= '9') && i!= '+' && i!= '-' && i!= '*' && i!= '/' && i!= '^' && i!= '(' && i!= ')')
+                    return false;
+            foreach (char i in s) {
+                if (i == '(')
+                    count++;
+                else if (i == ')')
+                    count2++;
+            }
+            if (count != count2)
+                return false;
+            return true;
         }
     }
 }
